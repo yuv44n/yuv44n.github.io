@@ -207,6 +207,7 @@ export default function App() {
             hasSubsection={!!mysterySubsection}
             selectedSiteIndex={mysterySiteIndex}
             onSiteSelect={setMysterySiteIndex}
+            onEnterSubsection={(label) => setMysterySubsection(label)}
           />
         );
       default:

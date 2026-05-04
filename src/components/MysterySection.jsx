@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { MYSTERY_OPTIONS, CRYPTIC_SITES, MYSTERY_LETTERS } from "../data";
 
-export function MysterySection({ selectedIndex, onSelect, hasSubsection, selectedSiteIndex, onSiteSelect }) {
+export function MysterySection({ selectedIndex, onSelect, hasSubsection, selectedSiteIndex, onSiteSelect, onEnterSubsection }) {
   const siteRefs = useRef([]);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export function MysterySection({ selectedIndex, onSelect, hasSubsection, selecte
             target="_blank"
             rel="noreferrer"
             onMouseEnter={() => onSiteSelect(index)}
+            onClick={() => onSiteSelect(index)}
             ref={(node) => {
               siteRefs.current[index] = node;
             }}
@@ -51,6 +52,8 @@ export function MysterySection({ selectedIndex, onSelect, hasSubsection, selecte
             onClick={() => {
               if (item.action === "link") {
                 window.open(item.href, "_blank", "noopener,noreferrer");
+              } else if (item.action === "submenu" && item.label) {
+                onEnterSubsection(item.label);
               }
             }}
           >
