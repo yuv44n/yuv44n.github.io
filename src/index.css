@@ -1,0 +1,48 @@
+:root {
+  color-scheme: dark;
+  --bg: #1a1b26;
+  --panel: #1f2335;
+  --header: #16161e;
+  --text: #a9b1d6;
+  --accent: #7aa2f7;
+  --accent-2: #bb9af7;
+  --accent-3: #9ece6a;
+  --accent-4: #f7768e;
+  --accent-5: #e0af68;
+  --select: #3b4261;
+  --prompt: #7dcfff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  background: radial-gradient(1200px 900px at 50% 20%, #1f2232 0%, #1a1b26 60%);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+#root {
+  width: min(1100px, 100%);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 12px;
+  }
+
+  #root {
+    width: 100%;
+  }
+}
